@@ -1,0 +1,43 @@
+buildscript {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    enabled = false
+}
+
+repositories {
+    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter"
+    implementation "org.springframework:spring-web"
+    implementation "org.springframework.boot:spring-boot-starter-data-redis"
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation "com.fasterxml.jackson.core:jackson-databind"
+    implementation 'org.projectlombok:lombok:1.18.10'
+    implementation 'org.mybatis:mybatis:3.5.4'
+    implementation 'org.mybatis:mybatis-spring:2.0.4'
+    implementation 'mysql:mysql-connector-java:5.1.49'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+    
+    testCompile("junit:junit")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}

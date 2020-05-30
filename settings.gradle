@@ -1,0 +1,5 @@
+rootProject.name = 'multiple-springs'
+
+include 'starter'
+include 'world'
+
